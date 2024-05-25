@@ -1,0 +1,12 @@
+<button><a href="{% url 'profileinfo' %}">Profile Info</a></button>
+<button><a href="{% url 'editprofile' %}">Edit Profile</a></button>
+{% if user.userType == 'recruiter' %}
+<button><a href="{% url 'recruiterprofile' %}">Recruiter More Info</a></button>
+{% elif user.userType == 'seeker' %}
+<button><a href="{% url 'seekerprofile' %}">Seeker More Info</a></button>
+<button><a href="{% url 'seekereducation' %}">Seeker Education</a></button>
+<button><a href="{% url 'seekerworkex' %}">Seeker Work Experience</a></button>
+{% endif %}
+<button><a href="{% url 'basicinfo' %}">Basic Info</a></button>
+<button><a href="{% url 'contactinfo' %}">Contact Info</a></button>
+<button><a href="{% url 'changepassword' %}">Change Password</a></button>

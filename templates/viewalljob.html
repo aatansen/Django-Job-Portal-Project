@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Jobs</title>
+    <style>
+        .job-card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .job-card h2 {
+            margin-top: 0;
+        }
+        .job-card p {
+            margin-bottom: 5px;
+        }
+        .action-buttons {
+            margin-top: 10px;
+        }
+        .action-buttons button {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Jobs</h1>
+    <div class="job-container">
+        {% for j in job %}
+        <div class="job-card">
+            <h2>{{ j.job_title }}</h2>
+            <p><strong>Company Name:</strong> {{ j.company_name }}</p>
+            <p><strong>Address:</strong> {{ j.address }}</p>
+            <p><strong>Company Description:</strong> {{ j.company_description }}</p>
+            <p><strong>Qualification:</strong> {{ j.qualification }}</p>
+            <p><strong>Salary Information:</strong> {{ j.salary_information }}</p>
+            <p><strong>Deadline:</strong> {{ j.deadline }}</p>
+            <p><strong>Designation:</strong> {{ j.designation }}</p>
+            <p><strong>Experience:</strong> {{ j.experience }}</p>
+            <p><strong>Created By:</strong> {{ j.created_by }}</p>
+            <div class="action-buttons">
+                {% if user.userType == "recruiter" and user == j.created_by %}
+                <a href="{% url 'editjob' j.id %}"><button>Edit</button></a>
+                <a href="{% url 'deletejob' j.id %}"><button>Delete</button></a>
+                    
+                {% endif %}
+                    
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+
+{% endblock content %}

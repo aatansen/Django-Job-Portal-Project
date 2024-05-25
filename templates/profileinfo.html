@@ -1,0 +1,22 @@
+{% extends 'profile.html' %}
+
+{% block profileinfo %}
+<h3>First name:</h3>
+<p>{{user.first_name}}</p>
+<h3>Last name:</h3>
+<p>{{user.last_name}}</p>
+<h3>Username:</h3>
+<p>{{user.username}}</p>
+<h3>Age:</h3>
+<p>{{user.age}}</p>
+<h3>Gender:</h3>
+<p>{{user.get_gender_display}}</p>
+<h3>City:</h3>
+<p>{{user.city}}</p>
+<h3>Country:</h3>
+<p>{{user.country}}</p>
+<h3>Blood Group:</h3>
+<p>{{user.bloodGroup}}</p>
+<h3>User Type:</h3>
+<p>{{user.get_userType_display}}</p>
+{% endblock profileinfo %}

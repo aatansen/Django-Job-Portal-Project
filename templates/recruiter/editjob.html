@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Posting Form</title>
+</head>
+<body>
+    <h1>Job Posting Form</h1>
+    <form action="{% url 'editjob' job.id %}" method="POST">
+        {% csrf_token %}
+        <label for="job-title">Job Title:</label>
+        <input type="text" id="job-title" value= {{job.job_title}} name="job_title" required><br><br>
+
+        <label for="company-name">Company Name:</label>
+        <input type="text" id="company-name" value= {{job.company_name}} name="company_name" required><br><br>
+
+        <label for="address">Address:</label>
+        <input type="text" id="address" value= {{job.address}} name="address" required><br><br>
+
+        <label for="company-description">Company Description:</label>
+        <textarea id="company-description" name="company_description" rows="4" cols="50" required>{{job.company_description}}</textarea><br><br>
+
+        <label for="job-description">Job Description:</label>
+        <textarea id="job-description" name="job_description" rows="4" cols="50" required>{{job.job_description}}</textarea><br><br>
+
+        <label for="qualification">Qualification:</label>
+        <textarea id="qualification" name="qualification" rows="4" cols="50" required>{{job.qualification}}</textarea><br><br>
+
+        <label for="salary-information">Salary Information:</label>
+        <input type="text" id="salary-information" value= {{job.salary_information}}  name="salary_information" required><br><br>
+
+        <label for="deadline">Deadline:</label>
+        <input type="date" id="deadline" value= {{job.deadline}} name="deadline" required><br><br>
+
+        <label for="designation">Designation:</label>
+        <input type="text" id="designation" value= {{job.designation}} name="designation" required><br><br>
+
+        <label for="experience">Experience:</label>
+        <input type="text" id="experience" value= {{job.experience}} name="experience" required><br><br>
+
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>
+
+{% endblock content %}

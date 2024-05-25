@@ -1,0 +1,11 @@
+{% extends 'profile.html' %}
+
+
+{% block profileinfo %}
+<h3>Position:</h3>
+<p>{{user.seekerworkexmodel.Position}}</p>
+<h3>Company name:</h3>
+<p>{{user.seekerworkexmodel.Company_name}}</p>
+<h3>Duration:</h3>
+<p>{{user.seekerworkexmodel.Duration}}</p>
+{% endblock profileinfo %}

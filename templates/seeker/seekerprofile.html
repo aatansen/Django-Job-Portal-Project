@@ -1,0 +1,13 @@
+{% extends 'profile.html' %}
+
+
+{% block profileinfo %}
+    <h3>Qualification</h3>
+    <p>{{user.seekerprofilemodel.Qualification}}</p>
+    <h3>Experience</h3>
+    <p>{{user.seekerprofilemodel.Experience}}</p>
+    <h3>Skills</h3>
+    <p>{{user.seekerprofilemodel.Skills}}</p>
+    <h3>Last education</h3>
+    <p>{{user.seekerprofilemodel.last_education}}</p>
+{% endblock profileinfo %}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            margin-top: 5px;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    {% include 'messages.html' %}
+    <h2>Registration Form</h2>
+    <form action="{% url 'signup' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="profilePhoto" >Profile photo:</label>
+        <input type="file" id="profilePhoto" name="profilePhoto" required>
+
+        <label for="firstName">First name:</label>
+        <input type="text" id="firstName" value="{{first_name}}" name="first_name"  required>
+
+        <label for="lastName">Last name:</label>
+        <input type="text" id="lastName" value="{{last_name}}" name="last_name" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" value="{{username}}" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" value="{{password}}" name="password" required>
+
+        <label for="confirmPassword">Confirm password:</label>
+        <input type="password" id="confirmPassword" value="{{confirmPassword}}" name="confirmPassword" required>
+
+        <label for="age">Age:</label>
+        <input type="text" id="age" value="{{age}}" name="age" required>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" value="{{gender}}" name="gender" required>
+            <option value="">Select</option>
+            <option value="male" {% if gender == "male" %} selected {% endif %}>Male</option>
+            <option value="female" {% if gender == "female" %} selected {% endif %}>Female</option>>Female</option>
+            <option value="other" {% if gender == "other" %} selected {% endif %}>Other</option>
+        </select>
+
+        <label for="city">City:</label>
+        <input type="text" id="city" value="{{city}}" name="city" required>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" value="{{country}}" name="country" required>
+
+        <label for="bloodGroup">Blood group:</label>
+        <input type="text" id="bloodGroup" value="{{bloodGroup}}" name="bloodGroup" required>
+
+        <label for="userType">User type:</label>
+        <select id="userType" value="{{userType}}" name="userType" required>
+            <option value="">Select</option>
+            <option value="seeker" {% if userType == "seeker" %} selected {% endif %}>Job Seeker</option>>Seeker</option>
+            <option value="recruiter" {% if userType == "recruiter" %} selected {% endif %}>Job Recruiter</option>
+        </select>
+
+        <input type="submit" value="Submit">
+    </form>
+    <a href="{% url 'signin' %}"> Already have an account?</a>
+</body>
+</html>

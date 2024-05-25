@@ -1,0 +1,11 @@
+{% extends 'profile.html' %}
+
+
+{% block profileinfo %}
+    <h3>Recruiter Name</h3>
+    <p>{{user.recruiterprofilemodel.Recruiter_Name}}</p>
+    <h3>Company name</h3>
+    <p>{{user.recruiterprofilemodel.Company_name}}</p>
+    <h3>Company location</h3>
+    <p>{{user.recruiterprofilemodel.Company_location}}</p>
+{% endblock profileinfo %}
