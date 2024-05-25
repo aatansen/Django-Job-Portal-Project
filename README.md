@@ -51,6 +51,10 @@
     STATIC_ROOT = BASE_DIR / 'staticfiles/'
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
     ```
+- Now use this command to collect all the static content
+    - `python manage.py collectstatic`
+
+### Render settings
 - Now go to render and select web service from New
 - Select Github repo of the project
 - Now in project setting page write Project Name (unique)
